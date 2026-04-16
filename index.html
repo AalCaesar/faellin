@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jawa kampung</title>
+<title>Jawa Kampung</title>
 
 <style>
 * {
@@ -14,76 +14,82 @@
 
 body {
     font-family: sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fecfef);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
 }
 
+/* CONTAINER */
 .container {
     background: rgba(255,255,255,0.95);
-    padding: 40px;
-    border-radius: 25px;
+    padding: 20px;
+    border-radius: 20px;
     text-align: center;
-    max-width: 600px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
 /* TITLE */
 h1 {
-    font-size: 2.8rem;
+    font-size: clamp(1.6rem, 5vw, 2.3rem);
     background: linear-gradient(135deg, #ff6b9d, #c44569);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* FOTO */
 .photo {
-    width: 260px;
-    height: 260px;
+    width: 55vw;
+    height: 55vw;
+    max-width: 200px;
+    max-height: 200px;
     border-radius: 50%;
-    margin: 25px auto;
-
+    margin: 20px auto;
     background-image: url('allle/jawa.png');
     background-size: cover;
     background-position: center;
-
-    border: 6px solid white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    border: 4px solid white;
 }
 
 /* TEXT */
 .description {
-    margin-bottom: 25px;
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* GIF */
+.gif {
+    width: 80%;
+    max-width: 220px;
+    margin: 15px auto;
+    display: block;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.gif:hover {
+    transform: scale(1.05);
 }
 
 /* PLAYER */
-.player {
-    margin-top: 20px;
-}
-
 .controls {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    background: #ff6b9d;
-    color: white;
-    cursor: pointer;
+    gap: 8px;
+    margin-top: 10px;
 }
 
 .progress {
     flex: 1;
-    height: 6px;
-    background: #eee;
-    cursor: pointer;
+    height: 5px;
+    background: #ddd;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .bar {
@@ -94,7 +100,30 @@ button {
 }
 
 .time {
-    font-size: 12px;
+    font-size: 11px;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #ff6b9d;
+    color: white;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    .progress {
+        width: 100%;
+    }
 }
 </style>
 </head>
@@ -104,13 +133,16 @@ button {
 <div class="container">
     <h1>Jawa Kampung</h1>
 
-    <img src="allle/jawa.png">
+    <div class="photo"></div>
 
     <div class="description">
         Holla This is Jawa Kampung<br>
-        Dia alay, jamet, annoying, weird<br>
-        Sekian, terima kasih
+        Dia alay, jamet, annoying, weird
+        Sekian, Terima Kasih
     </div>
+
+    <!-- GIF DI SINI -->
+    <img src="https://media1.tenor.com/m/Xn3TfHpAJiMAAAAd/scuba-cat-scuba.gif" class="gif">
 
     <div class="player">
         <p><b>Heaven</b></p>
@@ -125,7 +157,6 @@ button {
             <span class="time" id="duration">0:00</span>
         </div>
 
-        <br>
         <button id="playBtn">Play</button>
     </div>
 </div>
@@ -142,10 +173,9 @@ const progress = document.getElementById('progress');
 const current = document.getElementById('current');
 const duration = document.getElementById('duration');
 
-audio.volume = 0.5;
 let isPlaying = false;
 
-// PLAY / PAUSE
+// PLAY
 playBtn.onclick = () => {
     if (isPlaying) {
         audio.pause();
@@ -157,7 +187,7 @@ playBtn.onclick = () => {
     isPlaying = !isPlaying;
 };
 
-// UPDATE PROGRESS
+// PROGRESS
 audio.addEventListener('timeupdate', () => {
     if (!audio.duration) return;
 
