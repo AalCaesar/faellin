@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jawa Kampung</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- SOFT & AESTHETIC FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Inter:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,300;0,400;1,300&family=Cormorant+Garamond:wght@200;300;400&family=EB+Garamond:wght@300;400&family=Spectral:wght@200;300;400&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -15,32 +16,37 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", "Poppins", sans-serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #0f172a;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     padding: 20px;
 }
 
 /* CARD */
 .container {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 22px;
-    border-radius: 18px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 28px;
+    border-radius: 24px;
     text-align: center;
     width: 100%;
     max-width: 420px;
     color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* TITLE */
+/* TITLE - Playfair Display (elegant serif) */
 h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-family: "Playfair Display", serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    color: #f8fafc;
 }
 
 /* PHOTO */
@@ -48,109 +54,109 @@ h1 {
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    margin: 15px auto;
+    margin: 18px auto;
     background-image: url('allle/jawa.png');
     background-size: cover;
     background-position: center;
-    border: 2px solid rgba(255,255,255,0.3);
+    border: 3px solid rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
 }
 
-/* DESCRIPTION */
+/* DESCRIPTION - Cormorant Garamond (soft serif) */
 .description {
-    font-size: 0.9rem;
-    opacity: 0.85;
-    margin-bottom: 10px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.05rem;
+    font-weight: 300;
+    opacity: 0.92;
+    margin-bottom: 12px;
+    line-height: 1.7;
+    letter-spacing: 0.3px;
 }
 
-/* SONG INFO */
-.song-info {
-    margin: 10px 0;
-}
-
+/* SONG TITLE - Spectral (soft modern serif) */
 .song-title {
-    font-weight: 600;
-}
-
-.song-artist {
-    font-size: 0.8rem;
-    opacity: 0.7;
+    font-family: "Spectral", serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 16px;
+    opacity: 0.95;
+    color: #e2e8f0;
+    letter-spacing: 0.5px;
 }
 
 /* GIF */
 .gif {
-    width: 100px;
-    border-radius: 10px;
-    margin: 10px auto;
+    width: 90px;
+    border-radius: 12px;
+    margin: 12px auto;
     display: block;
-}
-
-/* CONTROLS */
-.controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.time {
-    font-size: 11px;
-    opacity: 0.8;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
 }
 
 /* PROGRESS */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.time {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    opacity: 0.85;
+    letter-spacing: 0.2px;
+}
+
 .progress {
     flex: 1;
-    height: 4px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 20px;
+    height: 5px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.progress:hover {
+    background: rgba(255,255,255,0.25);
 }
 
 .bar {
     height: 100%;
     width: 0%;
-    background: white;
-    border-radius: 20px;
-}
-
-/* BUTTONS */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-button {
-    padding: 8px 12px;
-    border: none;
+    background: linear-gradient(90deg, #a78bfa, #ec4899);
     border-radius: 10px;
-    background: white;
-    color: #0f172a;
-    font-weight: 600;
+    transition: width 0.3s ease;
+}
+
+/* PLAY BUTTON - EB Garamond (luxurious soft) */
+button {
+    font-family: "EB Garamond", serif;
+    width: 100%;
+    margin-top: 18px;
+    padding: 14px 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.1);
+    color: #f1f5f9;
+    font-size: 1rem;
+    font-weight: 400;
     cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    letter-spacing: 0.3px;
 }
 
-/* VOLUME */
-.volume {
-    margin-top: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+button:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(167,139,250,0.3);
 }
 
-.volume input {
-    flex: 1;
-}
-
-/* MOBILE */
-@media (max-width: 480px) {
-    .controls {
-        flex-direction: column;
-    }
-    .progress {
-        width: 100%;
-    }
+button:active {
+    transform: translateY(0);
 }
 </style>
 </head>
@@ -163,17 +169,16 @@ button {
 
     <div class="photo"></div>
 
-    <div class="song-info">
-        <div class="song-title">Heaven</div>
-        <div class="song-artist">Jawa Kampung</div>
-    </div>
-
+    <!-- DESKRIPSI -->
     <div class="description">
         Holla This is Jawa Kampung<br>
         She's alay, jamet, annoying, weird<br>
         Sekian, Terima Kasih<br>
-        CARAMEL AMA BUTTERSCOTH GUE KAPANN???
+        Ajakin Gue Ngopi Kocag
     </div>
+
+    <!-- SONG TITLE -->
+    <div class="song-title">Heaven-Bryan Adams</div>
 
     <img src="https://media1.tenor.com/m/Xn3TfHpAJiMAAAAd/scuba-cat-scuba.gif" class="gif">
 
@@ -188,20 +193,7 @@ button {
         <span class="time" id="duration">0:00</span>
     </div>
 
-    <!-- BUTTONS -->
-    <div class="buttons">
-        <button id="prev">Prev</button>
-        <button id="playBtn">Play</button>
-        <button id="next">Next</button>
-        <button id="loopBtn">Loop</button>
-    </div>
-
-    <!-- VOLUME -->
-    <div class="volume">
-        🔊
-        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
-    </div>
-
+    <button id="playBtn">▷ Play</button>
 </div>
 
 <audio id="audio">
@@ -209,57 +201,41 @@ button {
 </audio>
 
 <script>
-const audio = document.getElementById("audio");
-const playBtn = document.getElementById("playBtn");
-const bar = document.getElementById("bar");
-const progress = document.getElementById("progress");
-const current = document.getElementById("current");
-const duration = document.getElementById("duration");
-const volume = document.getElementById("volume");
-const loopBtn = document.getElementById("loopBtn");
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('playBtn');
+const bar = document.getElementById('bar');
+const progress = document.getElementById('progress');
+const current = document.getElementById('current');
+const duration = document.getElementById('duration');
 
 let isPlaying = false;
 
-// PLAY
 playBtn.onclick = () => {
     if (isPlaying) {
         audio.pause();
-        playBtn.textContent = "Play";
+        playBtn.textContent = "▷ Play";
     } else {
         audio.play();
-        playBtn.textContent = "Pause";
+        playBtn.textContent = "⏸ Pause";
     }
     isPlaying = !isPlaying;
 };
 
-// PROGRESS
-audio.addEventListener("timeupdate", () => {
+audio.addEventListener('timeupdate', () => {
+    if (!audio.duration) return;
     let percent = (audio.currentTime / audio.duration) * 100;
     bar.style.width = percent + "%";
     current.textContent = formatTime(audio.currentTime);
 });
 
-// DURATION
-audio.addEventListener("loadedmetadata", () => {
+audio.addEventListener('loadedmetadata', () => {
     duration.textContent = formatTime(audio.duration);
 });
 
-// SEEK
 progress.onclick = (e) => {
     const rect = progress.getBoundingClientRect();
     const pos = (e.clientX - rect.left) / rect.width;
     audio.currentTime = pos * audio.duration;
-};
-
-// VOLUME
-volume.oninput = () => {
-    audio.volume = volume.value;
-};
-
-// LOOP
-loopBtn.onclick = () => {
-    audio.loop = !audio.loop;
-    loopBtn.style.opacity = audio.loop ? "1" : "0.5";
 };
 
 function formatTime(sec) {
